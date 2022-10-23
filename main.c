@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:31:27 by mvalient          #+#    #+#             */
-/*   Updated: 2022/10/11 10:48:13 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/10/23 21:31:29 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ int	main(int argc, char **argv)
 	t_number	*b;
 
 	a = ft_handle_input(argc, argv);
-	a = sa(a);
+	b = NULL;
+	a = s(VariableName(a), a);
+	b = p(VariableName(b), b, a);
+	b = p(VariableName(b), b, a);
+	b = p(VariableName(b), b, a);
+	a = p(VariableName(a), a, b);
 	return (0);
 }

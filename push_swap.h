@@ -13,10 +13,19 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+#include "./libft_extra/ft_printf/ft_printf.h"
+#include "./libft_extra/get_next_line/get_next_line.h"
+#include "./libft_extra/libft/libft.h"
+
+#define VariableName(name) #name
+
 typedef struct s_number
 {
 	int				number;
 	struct s_number	*next;
 }			t_number;
-t_number	*sa(t_number *list);
+
+t_number	*s(char *stack, t_number *list);
+t_number *p(char *stack, t_number *a, t_number *b);
+
 #endif

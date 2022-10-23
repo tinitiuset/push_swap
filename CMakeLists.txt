@@ -8,6 +8,10 @@ include_directories(libft_extra)
 add_executable(push_swap
         main.c
         swap_utils.c
+        libft_extra/ft_printf/ft_long_itoa.c
+        libft_extra/ft_printf/ft_printf.c
+        libft_extra/ft_printf/ft_putnbr_base.c
+        libft_extra/libft/ft_strlen.c
         libft_extra/libft/ft_atoi.c
         libft_extra/libft/ft_isdigit.c
         )
