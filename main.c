@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:31:27 by mvalient          #+#    #+#             */
-/*   Updated: 2022/10/25 12:48:55 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/10/25 13:45:46 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,11 @@ int	main(int argc, char **argv)
 	b_container = (void *)&b;
 	s("a", a_container);
 	p("b", b_container, a_container);
+	p("b", b_container, a_container);
+	p("b", b_container, a_container);
 	r("a", a_container);
+	rr("a", a_container);
+	rrall(a_container, b_container);
 	a = *a_container;
 	b = *b_container;
 	return (0);

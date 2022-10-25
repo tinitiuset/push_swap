@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:35:42 by mvalient          #+#    #+#             */
-/*   Updated: 2022/10/25 12:48:55 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/10/25 13:31:09 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ typedef struct s_number
 }			t_number;
 
 void	s(char *stack, t_number **list);
+void	sall(t_number **a, t_number **b);
 void	p(char *stack, t_number **a, t_number **b);
 void	r(char *stack, t_number **a);
+void	rall(t_number **a, t_number **b);
+void	rr(char *stack, t_number **a);
+void	rrall(t_number **a, t_number **b);
 
 #endif

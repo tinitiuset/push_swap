@@ -1,13 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_utils.c                                       :+:      :+:    :+:   */
+/*   s.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 10:31:18 by mvalient          #+#    #+#             */
-/*   Updated: 2022/10/25 13:50:57 by mvalient         ###   ########.fr       */
+/*   Created: 2022/10/25 13:51:58 by mvalient          #+#    #+#             */
+/*   Updated: 2022/10/25 13:54:22 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	s(char *stack, t_number **list)
+{
+	t_number	*first;
+	t_number	*second;
+
+	if (!(*list)->next)
+	{
+		*list = NULL;
+		return ;
+	}
+	first = *list;
+	second = (*list)->next;
+	first->next = second->next;
+	second->next = first;
+	if (stack)
+		ft_printf("s%s\n", stack);
+	*list = second;
+}
+
+void	sall(t_number **a, t_number **b)
+{
+	s(0, a);
+	s("s", b);
+}
