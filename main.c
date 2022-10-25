@@ -46,13 +46,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	a_container = (void *)&a;
 	b_container = (void *)&b;
-	s("a", a_container);
-	p("b", b_container, a_container);
-	p("b", b_container, a_container);
-	p("b", b_container, a_container);
-	r("a", a_container);
-	rr("a", a_container);
-	rrall(a_container, b_container);
+	quicksort(a_container, b_container);
 	a = *a_container;
 	b = *b_container;
 	return (0);
