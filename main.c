@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:31:27 by mvalient          #+#    #+#             */
-/*   Updated: 2022/10/25 13:45:46 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/07 16:13:17 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,18 @@ int	main(int argc, char **argv)
 	b = NULL;
 	a_container = (void *)&a;
 	b_container = (void *)&b;
-	quicksort(a_container, b_container);
+	if (argc - 1 == 3)
+	{
+		sort_3(a_container);
+		exit(0);
+	}
+	if (argc -1 == 5)
+	{
+		sort_5(a_container, b_container);
+		exit(0);
+	}
+	ft_sort(a_container, b_container);
+	ft_get_min(a);
 	a = *a_container;
 	b = *b_container;
 	return (0);

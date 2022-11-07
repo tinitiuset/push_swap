@@ -12,7 +12,7 @@ add_executable(push_swap
         p.c
         r.c
         rr.c
-        quicksort.c
+        sort.c
         libft_extra/ft_printf/ft_long_itoa.c
         libft_extra/ft_printf/ft_printf.c
         libft_extra/ft_printf/ft_putnbr_base.c
