@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 08:31:28 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/08 09:16:38 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/08 13:02:50 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_number	*ft_handle_input(int argc, char **argv)
 t_number	*ft_handle_input_single_string(char **argv)
 {
 	int			i;
-	char 		**split;
+	char		**split;
 	t_number	*list_head;
 	t_number	*list_previous;
 	t_number	*list_element;
