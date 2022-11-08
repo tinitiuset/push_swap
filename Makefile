@@ -14,11 +14,12 @@ endef
 export HEADER
 
 CC = cc
+CFLAGS = -Wall -Werror -Wextra
 
-SRC =	main.c	swap_utils.c \
+SRC =	main.c	input_handler.c \
 		s.c	p.c \
 		r.c	rr.c \
-		sort.c
+		sort.c swap_utils.c
 
 SRC_OBJS = $(SRC:.c=.o)
 
@@ -27,11 +28,12 @@ all: $(NAME)
 $(NAME): $(SRC_OBJS)
 	@$(MAKE) -C ./libft_extra
 	@mv ./libft_extra/libft_extra.a .
-	@$(CC) $(SRC_OBJS) libft_extra.a -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC_OBJS) libft_extra.a -o $(NAME)
 	@echo "$$HEADER"
 
 clean:
 	rm $(SRC_OBJS)
+	rm ./libft_extra.a
 
 fclean: clean
 	rm $(NAME)

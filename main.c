@@ -6,33 +6,21 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:31:27 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/07 16:31:35 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/08 11:59:19 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_extra/libft/libft.h"
 #include "push_swap.h"
 
-t_number	*ft_handle_input(int argc, char **argv)
+t_number	*ft_handle(int argc, char **argv)
 {
-	int			i;
-	t_number	*list_head;
-	t_number	*list_previous;
-	t_number	*list_element;
-
-	i = 1;
-	list_head = malloc(sizeof(t_number));
-	list_head->number = ft_atoi(argv[i]);
-	list_previous = list_head;
-	while (++i < argc)
-	{
-		list_element = malloc(sizeof(t_number));
-		list_element->number = ft_atoi(argv[i]);
-		list_previous->next = list_element;
-		list_previous = list_element;
-	}
-	list_element->next = NULL;
-	return (list_head);
+	if (argc > 2)
+		return ft_handle_input(argc, argv);
+	else if (argc == 2)
+		return(ft_handle_input_single_string(argv));
+	else
+		exit(0);
 }
 
 int	main(int argc, char **argv)
@@ -42,22 +30,21 @@ int	main(int argc, char **argv)
 	void		**a_container;
 	void		**b_container;
 
-	a = ft_handle_input(argc, argv);
+	a = ft_handle(argc, argv);
 	b = NULL;
 	a_container = (void *)&a;
 	b_container = (void *)&b;
-	if (argc - 1 == 3)
+	if (ft_get_size(*a_container) == 3)
 	{
-		ft_sort_3(a_container);
+		ft_sort_3((t_number **)a_container);
 		exit(0);
 	}
-	if (argc -1 == 5)
+	if (ft_get_size(*a_container) == 5)
 	{
-		ft_sort_5(a_container, b_container);
+		ft_sort_5((t_number **)a_container, (t_number **)b_container);
 		exit(0);
 	}
-	ft_sort(a_container, b_container);
-	ft_get_min(a);
+	ft_sort((t_number **)a_container, (t_number **)b_container);
 	a = *a_container;
 	b = *b_container;
 	return (0);

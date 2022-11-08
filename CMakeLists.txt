@@ -13,10 +13,12 @@ add_executable(push_swap
         r.c
         rr.c
         sort.c
+        input_handler.c
         libft_extra/ft_printf/ft_long_itoa.c
         libft_extra/ft_printf/ft_printf.c
         libft_extra/ft_printf/ft_putnbr_base.c
         libft_extra/libft/ft_strlen.c
         libft_extra/libft/ft_atoi.c
         libft_extra/libft/ft_isdigit.c
+        libft_extra/libft/ft_split.c
         )
