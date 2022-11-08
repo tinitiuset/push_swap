@@ -30,13 +30,16 @@ $(NAME): $(SRC_OBJS)
 	@mv ./libft_extra/libft_extra.a .
 	@$(CC) $(CFLAGS) $(SRC_OBJS) libft_extra.a -o $(NAME)
 	@echo "$$HEADER"
+	@echo "Push_Swap Compiled"
 
 clean:
-	rm $(SRC_OBJS)
-	rm ./libft_extra.a
+	@rm $(SRC_OBJS)
+	@rm ./libft_extra.a
+	@echo "Cleared .o and .a files"
 
 fclean: clean
-	rm $(NAME)
+	@rm $(NAME)
+	@echo "Cleared Push_Swap executable"
 
 re: clean all
 

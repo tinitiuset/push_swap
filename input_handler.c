@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 08:31:28 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/08 13:02:50 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:24:15 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,16 @@ t_number	*ft_handle_input_single_string(char **argv)
 	list_head = malloc(sizeof(t_number));
 	list_head->number = ft_atoi(split[i]);
 	list_previous = list_head;
+	free(split[i]);
 	while (split[++i])
 	{
 		list_element = malloc(sizeof(t_number));
 		list_element->number = ft_atoi(split[i]);
 		list_previous->next = list_element;
 		list_previous = list_element;
+		free(split[i]);
 	}
+	free(split);
 	list_element->next = NULL;
 	return (list_head);
 }
