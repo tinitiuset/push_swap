@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:31:18 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/07 16:59:36 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/09 00:32:49 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,29 @@ int	ft_get_size(t_number *a)
 		size++;
 	}
 	return (size);
+}
+
+int	ft_get_median(t_number *a)
+{
+	int			result;
+	long long	median;
+	t_number	*temp;
+
+	median = 0;
+	temp = a;
+	while (temp)
+	{
+		median += temp->number;
+		temp = temp->next;
+	}
+	median = median / ft_get_size(a);
+	result = INT_MIN;
+	while (a)
+	{
+		if (a->number > result && a->number < median)
+			result = a->number;
+		else
+			a = a->next;
+	}
+	return (result);
 }

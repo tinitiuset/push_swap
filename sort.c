@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:43:46 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/08 14:05:53 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/09 01:25:35 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,64 @@ void	ft_sort_5(t_number **a, t_number **b)
 
 void	ft_sort(t_number **a, t_number **b)
 {
+	int	max;
+	int median;
+	int	size;
+
+	size = ft_get_size(*a);
+	median  = ft_get_median(*a);
+	// Mover superiores a medio
+	while ((*a))
+		if((*a)->number > median)
+			p("b", b, a);
+		else if (ft_get_max(*a) != median)
+			r("a", a);
+		else
+			break ;
+	// Ordenar lo que haya en b
+	while ((*b))
+	{
+		max = ft_get_max(*b);
+		while ((*b)->number != max)
+		{
+			if (size / 2 > ft_get_index(*b, max))
+				r("b", b);
+			else
+				rr("b", b);
+		}
+		p("a", a, b);
+	}
+	// Buscar medio
+	while ((*a)->number != median)
+		if (size / 2 > ft_get_index(*a, median))
+			r("a", a);
+		else
+			rr("a", a);
+	// Mover menor igual que medio
+	while ((*a))
+		if((*a)->number <= median)
+			p("b", b, a);
+		else if (ft_get_min(*a) < median)
+			r("a", a);
+		else
+			break ;
+	// Ordenar lo que haya en b
+	while ((*b))
+	{
+		max = ft_get_max(*b);
+		while ((*b)->number != max)
+		{
+			if (size / 2 > ft_get_index(*b, max))
+				r("b", b);
+			else
+				rr("b", b);
+		}
+		p("a", a, b);
+	}
+}
+
+/*void	ft_sort(t_number **a, t_number **b)
+{
 	int	min;
 	int	max;
 	int	size;
@@ -87,4 +145,4 @@ void	ft_sort(t_number **a, t_number **b)
 	}
 	while ((*b))
 		p("a", a, b);
-}
+}*/
