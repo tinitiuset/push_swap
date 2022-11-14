@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 	void		**b_container;
 
 	a = ft_handle(argc, argv);
+	set_index(a);
 	b = NULL;
 	a_container = (void *)&a;
 	b_container = (void *)&b;

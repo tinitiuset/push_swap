@@ -19,7 +19,8 @@ CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -g3
 SRC =	main.c	input_handler.c \
 		s.c	p.c \
 		r.c	rr.c \
-		sort.c swap_utils.c
+		sort.c \
+		swap_utils.c swap_utils_2.c
 
 SRC_OBJS = $(SRC:.c=.o)
 

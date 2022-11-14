@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p.c                                                :+:      :+:    :+:   */
+/*   swap_utils_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 13:53:24 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/14 23:42:18 by mvalient         ###   ########.fr       */
+/*   Created: 2022/11/14 23:55:30 by mvalient          #+#    #+#             */
+/*   Updated: 2022/11/14 23:56:07 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	p(char *stack, t_number **a, t_number **b)
+int	ft_get_median(t_number *a)
 {
-	t_number	*temp_a;
+	int			result;
+	long long	median;
+	t_number	*temp;
 
-	temp_a = malloc(sizeof(t_number));
-	temp_a->number = 0;
-	temp_a->next = NULL;
-	temp_a->number = (*b)->number;
-	temp_a->index = (*b)->index;
-	if (*a)
-		temp_a->next = *a;
-	if ((*b)->next)
+	median = 0;
+	temp = a;
+	while (temp)
 	{
-		(*b)->number = (*b)->next->number;
-		(*b)->index = (*b)->next->index;
-		(*b)->next = (*b)->next->next;
+		median += temp->number;
+		temp = temp->next;
 	}
-	else
-		*b = NULL;
-	if (stack)
-		ft_printf("p%s\n", stack);
-	*a = temp_a;
+	median = median / ft_get_size(a);
+	result = INT_MIN;
+	while (a)
+	{
+		if (a->number > result && a->number < median)
+			result = a->number;
+		else
+			a = a->next;
+	}
+	return (result);
 }

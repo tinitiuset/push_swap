@@ -21,4 +21,4 @@ add_executable(push_swap
         libft_extra/libft/ft_atoi.c
         libft_extra/libft/ft_isdigit.c
         libft_extra/libft/ft_split.c
-        )
+        swap_utils_2.c)

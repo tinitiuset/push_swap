@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:31:18 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/09 00:32:49 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/14 23:56:07 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,40 @@ int	ft_get_max(t_number *a)
 	return (max);
 }
 
+/*
+ * TODO no idea how this works but it does.
+ * if (!(candidate >= temp_a->number))
+ *     if (!(temp_a->number > candidate))
+ *         break ;
+ */
+int	ft_get_next(int prev, t_number *a)
+{
+	int			candidate;
+	t_number	*temp_a;
+
+	while (a)
+	{
+		if (a->number > prev)
+		{
+			candidate = a->number;
+			temp_a = a;
+			while (temp_a && candidate > prev)
+			{
+				if (temp_a->number < candidate && temp_a->number > prev)
+					break ;
+				if (!(candidate >= temp_a->number))
+					if (!(temp_a->number > candidate))
+						break ;
+				temp_a = temp_a->next;
+			}
+			if (!temp_a)
+				return (candidate);
+		}
+		a = a->next;
+	}
+	return (prev);
+}
+
 int	ft_get_index(t_number *a, int number)
 {
 	int		index;
@@ -66,29 +100,4 @@ int	ft_get_size(t_number *a)
 		size++;
 	}
 	return (size);
-}
-
-int	ft_get_median(t_number *a)
-{
-	int			result;
-	long long	median;
-	t_number	*temp;
-
-	median = 0;
-	temp = a;
-	while (temp)
-	{
-		median += temp->number;
-		temp = temp->next;
-	}
-	median = median / ft_get_size(a);
-	result = INT_MIN;
-	while (a)
-	{
-		if (a->number > result && a->number < median)
-			result = a->number;
-		else
-			a = a->next;
-	}
-	return (result);
 }
