@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:43:46 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/15 17:12:53 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/15 18:51:48 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,93 +64,28 @@ void	ft_sort_5(t_number **a, t_number **b)
 }
 
 /*
- * Move upper side to b
- * Order b
- * Rotate till median
- * Move lower side to b
- * Order b
+ * Radix based sort using indexes
  */
 void	ft_sort(t_number **a, t_number **b)
 {
-	int	max;
-	int	median;
+	int	index;
 	int	size;
+	int	max_bits;
 
-	size = ft_get_size(*a);
-	median = ft_get_median(*a);
-	while ((*a))
+	index = 0;
+	max_bits = ft_count_bits(ft_get_max(*a)->index);
+	while (index < max_bits)
 	{
-		if ((*a)->number > median)
-			p("b", b, a);
-		else if (ft_get_max(*a) != median)
-			r("a", a);
-		else
-			break ;
-	}
-	while ((*b))
-	{
-		max = ft_get_max(*b);
-		while ((*b)->number != max)
+		size = ft_get_size(*a);
+		while (*a && size--)
 		{
-			if (size / 2 > ft_get_index(*b, max))
-				r("b", b);
+			if (!ft_check_bit((*a)->index, index))
+				p("b", b, a);
 			else
-				rr("b", b);
+				r("a", a);
 		}
-		p("a", a, b);
-	}
-	while ((*a)->number != median)
-	{
-		if (size / 2 > ft_get_index(*a, median))
-			r("a", a);
-		else
-			rr("a", a);
-	}
-	while ((*a))
-	{
-		if ((*a)->number <= median)
-			p("b", b, a);
-		else if (ft_get_min(*a) < median)
-			r("a", a);
-		else
-			break ;
-	}
-	while ((*b))
-	{
-		max = ft_get_max(*b);
-		while ((*b)->number != max)
-		{
-			if (size / 2 > ft_get_index(*b, max))
-				r("b", b);
-			else
-				rr("b", b);
-		}
-		p("a", a, b);
+		while ((*b))
+			p("a", a, b);
+		index++;
 	}
 }
-
-/*void	ft_sort(t_number **a, t_number **b)
-{
-	int	min;
-	int	max;
-	int	size;
-	int	index;
-
-	size = ft_get_size(*a);
-	while ((*a))
-	{
-		min = ft_get_min(*a);
-		max = ft_get_max(*a);
-		index = ft_get_index(*a, min);
-		while ((*a)->number != min)
-		{
-			if (size / 2 > index)
-				r("a", a);
-			else
-				rr("a", a);
-		}
-		p("b", b, a);
-	}
-	while ((*b))
-		p("a", a, b);
-}*/

@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:31:18 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/15 17:12:53 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:50:43 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ int	ft_get_min(t_number *a)
 	return (min);
 }
 
-int	ft_get_max(t_number *a)
+t_number	*ft_get_max(t_number *a)
 {
-	int		max;
+	t_number	*max;
 
-	max = a->number;
+	max = a;
 	while (a->next)
 	{
 		a = a->next;
-		if (a->number > max)
-			max = a->number;
+		if (a->number > max->number)
+			max = a;
 	}
 	return (max);
 }
@@ -72,21 +72,6 @@ int	ft_get_next(int prev, t_number *a)
 		a = a->next;
 	}
 	return (prev);
-}
-
-int	ft_get_index(t_number *a, int number)
-{
-	int		index;
-
-	index = 0;
-	while (a)
-	{
-		index++;
-		if (number == a->number)
-			break ;
-		a = a->next;
-	}
-	return (index);
 }
 
 int	ft_get_size(t_number *a)
