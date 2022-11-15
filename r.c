@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	r(char *stack, t_number **a)
+void	ft_r(char *stack, t_number **a)
 {
 	t_number	*first;
 	t_number	*iterator;
@@ -27,8 +27,8 @@ void	r(char *stack, t_number **a)
 	ft_printf("r%s\n", stack);
 }
 
-void	rall(t_number **a, t_number **b)
+void	ft_rall(t_number **a, t_number **b)
 {
-	r(0, a);
-	r("r", b);
+	ft_r(0, a);
+	ft_r("r", b);
 }

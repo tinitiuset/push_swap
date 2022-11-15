@@ -6,13 +6,13 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 13:53:24 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/15 17:12:53 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/15 21:04:15 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	p(char *stack, t_number **a, t_number **b)
+void	ft_p(char *stack, t_number **a, t_number **b)
 {
 	t_number	*temp_a;
 

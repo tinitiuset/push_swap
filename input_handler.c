@@ -6,11 +6,41 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 08:31:28 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/15 17:12:53 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/15 23:20:38 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	ft_good_input(const char *string)
+{
+	while (*string)
+	{
+		if (!((*string >= 48 && *string <= 57) || *string == 32))
+		{
+			if (!(*string == 45 && (*(string + 1) >= 48
+						&& *(string + 1) <= 57)))
+			{
+				ft_printf("Error");
+				exit(0);
+			}
+		}
+		string++;
+	}
+}
+
+static void	ft_not_repeated(int num, t_number *list)
+{
+	while (list)
+	{
+		if (list->number == num)
+		{
+			ft_printf("Error");
+			exit(0);
+		}
+		list = list->next;
+	}
+}
 
 t_number	*ft_handle_input(int argc, char **argv)
 {
@@ -19,18 +49,21 @@ t_number	*ft_handle_input(int argc, char **argv)
 	t_number	*list_previous;
 	t_number	*list_element;
 
-	i = 1;
-	list_head = malloc(sizeof(t_number));
-	list_head->number = ft_atoi(argv[i]);
-	list_head->index = 0;
-	list_previous = list_head;
+	i = 0;
 	while (++i < argc)
 	{
+		ft_good_input(argv[i]);
+		if (i > 1)
+			ft_not_repeated(ft_atoi(argv[i]), list_head);
 		list_element = malloc(sizeof(t_number));
 		list_element->number = ft_atoi(argv[i]);
 		list_element->index = 0;
-		list_previous->next = list_element;
+		list_element->next = NULL;
+		if (i > 1)
+			list_previous->next = list_element;
 		list_previous = list_element;
+		if (i == 1)
+			list_head = list_element;
 	}
 	list_element->next = NULL;
 	return (list_head);
@@ -44,25 +77,25 @@ t_number	*ft_handle_input_single_string(char **argv)
 	t_number	*list_previous;
 	t_number	*list_element;
 
+	ft_good_input(argv[1]);
 	split = ft_split(argv[1], ' ');
-	i = 0;
-	list_head = malloc(sizeof(t_number));
-	list_head->number = ft_atoi(split[i]);
-	list_head->index = 0;
-	list_previous = list_head;
-	free(split[i]);
+	i = -1;
 	while (split[++i])
 	{
+		if (i)
+			ft_not_repeated(ft_atoi(split[i]), list_head);
 		list_element = malloc(sizeof(t_number));
 		list_element->number = ft_atoi(split[i]);
 		list_element->index = 0;
-		list_previous->next = list_element;
+		list_element->next = NULL;
+		if (i)
+			list_previous->next = list_element;
 		list_previous = list_element;
+		if (!i)
+			list_head = list_element;
 		free(split[i]);
 	}
-	free(split);
-	list_element->next = NULL;
-	return (list_head);
+	return (free(split), list_head);
 }
 
 void	set_index(t_number *list)

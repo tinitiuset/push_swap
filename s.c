@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	s(char *stack, t_number **list)
+void	ft_s(char *stack, t_number **list)
 {
 	t_number	*first;
 	t_number	*second;
@@ -31,8 +31,8 @@ void	s(char *stack, t_number **list)
 	*list = second;
 }
 
-void	sall(t_number **a, t_number **b)
+void	ft_sall(t_number **a, t_number **b)
 {
-	s(0, a);
-	s("s", b);
+	ft_s(0, a);
+	ft_s("s", b);
 }
