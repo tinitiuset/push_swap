@@ -6,11 +6,18 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:43:46 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/15 20:58:58 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/15 21:04:15 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_sort_2(t_number **a)
+{
+	if ((*a)->index > (*a)->next->index)
+		ft_s("a", a);
+	exit(0);
+}
 
 void	ft_sort_3(t_number **a)
 {
