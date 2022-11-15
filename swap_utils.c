@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:31:18 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/15 23:50:42 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/15 23:52:58 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ft_get_size(t_number *a)
 	return (size);
 }
 
-void ft_list_ordered(t_number *a)
+void	ft_list_ordered(t_number *a)
 {
 	int	prev;
 
