@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:35:42 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/14 17:28:24 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:12:53 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int			ft_get_next(int prev, t_number *a);
 int			ft_get_index(t_number *a, int number);
 int			ft_get_size(t_number *a);
 int			ft_get_median(t_number *a);
+int			check_bit(int num, int pos);
 void		ft_sort(t_number **a, t_number **b);
 
 #endif

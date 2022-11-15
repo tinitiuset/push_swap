@@ -6,11 +6,10 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:31:27 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/08 23:37:47 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:12:53 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_extra/libft/libft.h"
 #include "push_swap.h"
 
 t_number	*ft_handle(int argc, char **argv)

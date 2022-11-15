@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:55:30 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/14 23:56:07 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:17:38 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,9 @@ int	ft_get_median(t_number *a)
 			a = a->next;
 	}
 	return (result);
+}
+
+int	check_bit(int num, int pos)
+{
+	return ((num >> pos) & 0x01);
 }
