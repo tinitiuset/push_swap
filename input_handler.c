@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 08:31:28 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/16 10:04:38 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/16 10:41:43 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	ft_good_input(const char *string)
 		if (!((*string >= 48 && *string <= 57) || *string == 32))
 		{
 			if (!(*string == 45 && (*(string + 1) >= 48
-						&& *(string + 1) <= 57)))
+						&& *(string + 1) <= 57) && *(string - 1) == 32))
 			{
 				ft_printf("Error");
 				exit(0);
