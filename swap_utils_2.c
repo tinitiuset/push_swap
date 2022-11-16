@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 23:55:30 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/16 10:41:43 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/16 10:43:42 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	ft_check_bit(int num, int pos)
 	return ((num >> pos) & 1);
 }
 
-int ft_secure_atoi(char *nptr)
+int	ft_secure_atoi(char *nptr)
 {
 	long long	nb;
-	int	sign;
+	int			sign;
 
 	nb = 0;
 	sign = 1;
