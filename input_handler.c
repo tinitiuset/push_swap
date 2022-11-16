@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 08:31:28 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/15 23:20:38 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/16 10:04:38 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ t_number	*ft_handle_input(int argc, char **argv)
 	{
 		ft_good_input(argv[i]);
 		if (i > 1)
-			ft_not_repeated(ft_atoi(argv[i]), list_head);
+			ft_not_repeated(ft_secure_atoi(argv[i]), list_head);
 		list_element = malloc(sizeof(t_number));
-		list_element->number = ft_atoi(argv[i]);
+		list_element->number = ft_secure_atoi(argv[i]);
 		list_element->index = 0;
 		list_element->next = NULL;
 		if (i > 1)
@@ -83,9 +83,9 @@ t_number	*ft_handle_input_single_string(char **argv)
 	while (split[++i])
 	{
 		if (i)
-			ft_not_repeated(ft_atoi(split[i]), list_head);
+			ft_not_repeated(ft_secure_atoi(split[i]), list_head);
 		list_element = malloc(sizeof(t_number));
-		list_element->number = ft_atoi(split[i]);
+		list_element->number = ft_secure_atoi(split[i]);
 		list_element->index = 0;
 		list_element->next = NULL;
 		if (i)
