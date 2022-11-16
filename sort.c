@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:43:46 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/15 21:04:15 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/16 10:21:58 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_sort_2(t_number **a)
 {
 	if ((*a)->index > (*a)->next->index)
 		ft_s("a", a);
-	exit(0);
 }
 
 void	ft_sort_3(t_number **a)
@@ -42,34 +41,36 @@ void	ft_sort_3(t_number **a)
 		ft_s("a", a);
 		ft_r("a", a);
 	}
-	else if (first < second && second > third && third > first)
+	else if (first < second && second > third && third < first)
 		ft_rr("a", a);
-	exit(0);
 }
 
 void	ft_sort_5(t_number **a, t_number **b)
 {
-	ft_p("b", b, a);
-	ft_p("b", b, a);
-	ft_sort_3(a);
-	ft_p("a", a, b);
-	if ((*a)->number > (*a)->next->next->next->number)
+	t_number	*(*min_or_max)(t_number *);
+
+	if ((*a)->index != ft_get_max(*a)->index)
+		min_or_max = ft_get_min;
+	else
+		min_or_max = ft_get_max;
+	while ((*a)->index != min_or_max(*a)->index)
 		ft_r("a", a);
-	else if ((*a)->number < (*a)->next->next->next->number)
+	ft_p("b", b, a);
+	if (ft_get_size(*a) == 3)
+		ft_sort_3(a);
+	else
 	{
-		ft_rr("a", a);
-		ft_s("a", a);
-		ft_r("a", a);
-		ft_r("a", a);
+		while ((*a)->index != min_or_max(*a)->index)
+			ft_r("a", a);
+		ft_p("b", b, a);
+		ft_sort_3(a);
+		ft_p("a", a, b);
+		if (min_or_max == ft_get_max)
+			ft_r("a", a);
 	}
-	else if ((*a)->number > (*a)->next->number)
-		ft_s("a", a);
 	ft_p("a", a, b);
-	if ((*a)->number > (*a)->next->next->next->next->number)
+	if (min_or_max == ft_get_max)
 		ft_r("a", a);
-	else if ((*a)->number > (*a)->next->number)
-		ft_s("a", a);
-	exit(0);
 }
 
 /*
@@ -94,5 +95,4 @@ void	ft_sort(t_number **a, t_number **b)
 		while (*b)
 			ft_p("a", a, b);
 	}
-	exit(0);
 }

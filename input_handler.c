@@ -105,7 +105,7 @@ void	set_index(t_number *list)
 	int			index;
 	t_number	*temp_list;
 
-	min = ft_get_min(list);
+	min = ft_get_min(list)->number;
 	size = ft_get_size(list);
 	index = 0;
 	while (size > index)

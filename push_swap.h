@@ -35,7 +35,7 @@ void		ft_rrall(t_number **a, t_number **b);
 t_number	*ft_handle_input(int argc, char **argv);
 t_number	*ft_handle_input_single_string(char **argv);
 void		set_index(t_number *list);
-int			ft_get_min(t_number *a);
+t_number	*ft_get_min(t_number *a);
 t_number	*ft_get_max(t_number *a);
 int			ft_get_next(int prev, t_number *a);
 int			ft_get_size(t_number *a);

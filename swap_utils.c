@@ -12,16 +12,16 @@
 
 #include "push_swap.h"
 
-int	ft_get_min(t_number *a)
+t_number	*ft_get_min(t_number *a)
 {
-	int		min;
+	t_number	*min;
 
-	min = a->number;
+	min = a;
 	while (a->next)
 	{
 		a = a->next;
-		if (a->number < min)
-			min = a->number;
+		if (a->number < min->number)
+			min = a;
 	}
 	return (min);
 }
