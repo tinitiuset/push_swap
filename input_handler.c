@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 08:31:28 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/21 18:12:13 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:21:41 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void	ft_good_input(const char *string)
 	if (string[0] == '-')
 	{
 		i = 1;
-		if (!string[1])
+		if (!string[i])
 		{
-			ft_printf("Error");
+			ft_printf("Error\n");
 			exit(0);
 		}
 	}
@@ -30,7 +30,7 @@ static void	ft_good_input(const char *string)
 	{
 		if (!(string[i] >= 48 && string[i] <= 57))
 		{
-			ft_printf("Error");
+			ft_printf("Error\n");
 			exit(0);
 		}
 		i++;
@@ -43,7 +43,7 @@ static void	ft_not_repeated(int num, t_number *list)
 	{
 		if (list->number == num)
 		{
-			ft_printf("Error");
+			ft_printf("Error\n");
 			exit(0);
 		}
 		list = list->next;
