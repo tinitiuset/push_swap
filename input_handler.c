@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 08:31:28 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/16 10:41:43 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:12:13 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,26 @@
 
 static void	ft_good_input(const char *string)
 {
-	while (*string)
+	int	i;
+
+	i = 0;
+	if (string[0] == '-')
 	{
-		if (!((*string >= 48 && *string <= 57) || *string == 32))
+		i = 1;
+		if (!string[1])
 		{
-			if (!(*string == 45 && (*(string + 1) >= 48
-						&& *(string + 1) <= 57) && *(string - 1) == 32))
-			{
-				ft_printf("Error");
-				exit(0);
-			}
+			ft_printf("Error");
+			exit(0);
 		}
-		string++;
+	}
+	while (string[i])
+	{
+		if (!(string[i] >= 48 && string[i] <= 57))
+		{
+			ft_printf("Error");
+			exit(0);
+		}
+		i++;
 	}
 }
 
@@ -77,11 +85,11 @@ t_number	*ft_handle_input_single_string(char **argv)
 	t_number	*list_previous;
 	t_number	*list_element;
 
-	ft_good_input(argv[1]);
 	split = ft_split(argv[1], ' ');
 	i = -1;
 	while (split[++i])
 	{
+		ft_good_input(split[i]);
 		if (i)
 			ft_not_repeated(ft_secure_atoi(split[i]), list_head);
 		list_element = malloc(sizeof(t_number));
