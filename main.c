@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:31:27 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/16 08:50:08 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/21 12:53:08 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 	t_number	*b;
 
 	a = ft_handle(argc, argv);
-	set_index(a);
+	ft_set_index(a);
 	b = NULL;
 	ft_list_ordered(a);
 	ft_sort_case_selector(&a, &b);

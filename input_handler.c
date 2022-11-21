@@ -98,7 +98,7 @@ t_number	*ft_handle_input_single_string(char **argv)
 	return (free(split), list_head);
 }
 
-void	set_index(t_number *list)
+void	ft_set_index(t_number *list)
 {
 	int			min;
 	int			size;

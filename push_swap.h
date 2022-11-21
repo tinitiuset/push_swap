@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:35:42 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/16 10:04:38 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/21 12:53:08 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		ft_rr(char *stack, t_number **a);
 void		ft_rrall(t_number **a, t_number **b);
 t_number	*ft_handle_input(int argc, char **argv);
 t_number	*ft_handle_input_single_string(char **argv);
-void		set_index(t_number *list);
+void		ft_set_index(t_number *list);
 t_number	*ft_get_min(t_number *a);
 t_number	*ft_get_max(t_number *a);
 int			ft_get_next(int prev, t_number *a);
