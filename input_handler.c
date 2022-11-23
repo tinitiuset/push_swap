@@ -6,13 +6,26 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 08:31:28 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/21 18:21:41 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/23 09:34:18 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_good_input(const char *string, t_number **a)
+static void	ft_clear_split(char **split)
+{
+	int i;
+
+	if (split)
+	{
+		i = -1;
+		while (split[++i])
+			free(split[i]);
+		free(split);
+	}
+}
+
+static void	ft_good_input(const char *string, t_number **a, char **split)
 {
 	int	i;
 
@@ -23,6 +36,7 @@ static void	ft_good_input(const char *string, t_number **a)
 		if (!string[i])
 		{
 			ft_clearup(a);
+			ft_clear_split(split);
 			ft_printf("Error\n");
 			exit(0);
 		}
@@ -32,6 +46,7 @@ static void	ft_good_input(const char *string, t_number **a)
 		if (!(string[i] >= 48 && string[i] <= 57))
 		{
 			ft_clearup(a);
+			ft_clear_split(split);
 			ft_printf("Error\n");
 			exit(0);
 		}
@@ -60,9 +75,10 @@ t_number	*ft_handle_input(int argc, char **argv)
 	t_number	*list_element;
 
 	i = 0;
+	list_head = NULL;
 	while (++i < argc)
 	{
-		ft_good_input(argv[i], &list_head);
+		ft_good_input(argv[i], &list_head, NULL);
 		if (i > 1)
 			ft_not_repeated(ft_secure_atoi(argv[i]), list_head);
 		list_element = malloc(sizeof(t_number));
@@ -87,11 +103,12 @@ t_number	*ft_handle_input_single_string(char **argv)
 	t_number	*list_previous;
 	t_number	*list_element;
 
+	list_head = NULL;
 	split = ft_split(argv[1], ' ');
 	i = -1;
 	while (split[++i])
 	{
-		ft_good_input(split[i], &list_head);
+		ft_good_input(split[i], &list_head, split);
 		if (i)
 			ft_not_repeated(ft_secure_atoi(split[i]), list_head);
 		list_element = malloc(sizeof(t_number));
@@ -103,9 +120,8 @@ t_number	*ft_handle_input_single_string(char **argv)
 		list_previous = list_element;
 		if (!i)
 			list_head = list_element;
-		free(split[i]);
 	}
-	return (free(split), list_head);
+	return (ft_clear_split(split), list_head);
 }
 
 void	ft_set_index(t_number *list)

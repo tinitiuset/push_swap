@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:31:27 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/23 08:51:14 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/23 09:31:25 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,14 @@ void	ft_clearup(t_number **a)
 {
 	t_number	*temp;
 
-	while (*a)
+	if (*a)
 	{
-		temp = *a;
-		(*a) = (*a)->next;
-		free(temp);
+		while (*a)
+		{
+			temp = *a;
+			(*a) = (*a)->next;
+			free(temp);
+		}
 	}
 }
 
