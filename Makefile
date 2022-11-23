@@ -14,7 +14,7 @@ endef
 export HEADER
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -g3
+CFLAGS = -Wall -Werror -Wextra
 
 SRC =	main.c	input_handler.c \
 		s.c	p.c \
