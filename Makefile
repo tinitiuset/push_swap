@@ -34,6 +34,7 @@ $(NAME): $(SRC_OBJS)
 	@echo "Push_Swap Compiled"
 
 clean:
+	@$(MAKE) -C ./libft_extra clean
 	@rm $(SRC_OBJS)
 	@rm ./libft_extra.a
 	@echo "Cleared .o and .a files"
