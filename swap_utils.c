@@ -87,7 +87,7 @@ int	ft_get_size(t_number *a)
 	return (size);
 }
 
-void	ft_list_ordered(t_number *a)
+int	ft_list_ordered(t_number *a)
 {
 	int	prev;
 
@@ -96,9 +96,9 @@ void	ft_list_ordered(t_number *a)
 	while (a)
 	{
 		if (!(a->index > prev))
-			return ;
+			return (1);
 		prev = a->index;
 		a = a->next;
 	}
-	exit(0);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:31:27 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/23 09:53:28 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/23 09:57:41 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_number	*ft_handle(int argc, char **argv)
 void	ft_sort_case_selector(t_number **a, t_number **b)
 {
 	if (ft_get_size(*a) == 1)
-		exit(0);
+		return ;
 	else if (ft_get_size(*a) == 2)
 		ft_sort_2(a);
 	else if (ft_get_size(*a) == 3)
@@ -72,8 +72,8 @@ int	main(int argc, char **argv)
 	a = ft_handle(argc, argv);
 	ft_set_index(a);
 	b = NULL;
-	ft_list_ordered(a);
-	ft_sort_case_selector(&a, &b);
+	if (ft_list_ordered(a))
+		ft_sort_case_selector(&a, &b);
 	ft_clearup(&a);
 	free(a);
 	free(b);

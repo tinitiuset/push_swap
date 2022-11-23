@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 08:31:28 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/23 09:34:18 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:12:39 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,14 @@ static void	ft_good_input(const char *string, t_number **a, char **split)
 	}
 }
 
-static void	ft_not_repeated(int num, t_number *list)
+static void	ft_not_repeated(int num, t_number *list, char **split)
 {
 	while (list)
 	{
 		if (list->number == num)
 		{
+			ft_clearup(&list);
+			ft_clear_split(split);
 			ft_printf("Error\n");
 			exit(0);
 		}
@@ -67,7 +69,7 @@ t_number	*ft_handle_input(int argc, char **argv)
 	{
 		ft_good_input(argv[i], &list_head, NULL);
 		if (i > 1)
-			ft_not_repeated(ft_secure_atoi(argv[i]), list_head);
+			ft_not_repeated(ft_secure_atoi(argv[i]), list_head, NULL);
 		list_element = malloc(sizeof(t_number));
 		list_element->number = ft_secure_atoi(argv[i]);
 		list_element->index = 0;
@@ -97,7 +99,7 @@ t_number	*ft_handle_input_single_string(char **argv)
 	{
 		ft_good_input(split[i], &list_head, split);
 		if (i)
-			ft_not_repeated(ft_secure_atoi(split[i]), list_head);
+			ft_not_repeated(ft_secure_atoi(split[i]), list_head, split);
 		list_element = malloc(sizeof(t_number));
 		list_element->number = ft_secure_atoi(split[i]);
 		list_element->index = 0;

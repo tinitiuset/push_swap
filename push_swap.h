@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:35:42 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/23 09:51:48 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/23 09:57:41 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_number	*ft_get_min(t_number *a);
 t_number	*ft_get_max(t_number *a);
 int			ft_get_next(int prev, t_number *a);
 int			ft_get_size(t_number *a);
-void		ft_list_ordered(t_number *a);
+int			ft_list_ordered(t_number *a);
 int			ft_check_bit(int num, int pos);
 int			ft_count_bits(int n);
 int			ft_secure_atoi(char *nptr);
