@@ -6,7 +6,7 @@
 /*   By: mvalient <mvalient@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:35:42 by mvalient          #+#    #+#             */
-/*   Updated: 2022/11/21 12:53:08 by mvalient         ###   ########.fr       */
+/*   Updated: 2022/11/23 09:51:48 by mvalient         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ void		ft_sort_3(t_number **a);
 void		ft_sort_5(t_number **a, t_number **b);
 void		ft_sort(t_number **a, t_number **b);
 void		ft_clearup(t_number **a);
+void		ft_clear_split(char **split);
 
 #endif

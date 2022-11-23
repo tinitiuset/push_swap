@@ -12,19 +12,6 @@
 
 #include "push_swap.h"
 
-static void	ft_clear_split(char **split)
-{
-	int i;
-
-	if (split)
-	{
-		i = -1;
-		while (split[++i])
-			free(split[i]);
-		free(split);
-	}
-}
-
 static void	ft_good_input(const char *string, t_number **a, char **split)
 {
 	int	i;
