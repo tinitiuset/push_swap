@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	ft_good_input(const char *string)
+static void	ft_good_input(const char *string, t_number **a)
 {
 	int	i;
 
@@ -22,6 +22,7 @@ static void	ft_good_input(const char *string)
 		i = 1;
 		if (!string[i])
 		{
+			ft_clearup(a);
 			ft_printf("Error\n");
 			exit(0);
 		}
@@ -30,6 +31,7 @@ static void	ft_good_input(const char *string)
 	{
 		if (!(string[i] >= 48 && string[i] <= 57))
 		{
+			ft_clearup(a);
 			ft_printf("Error\n");
 			exit(0);
 		}
@@ -60,7 +62,7 @@ t_number	*ft_handle_input(int argc, char **argv)
 	i = 0;
 	while (++i < argc)
 	{
-		ft_good_input(argv[i]);
+		ft_good_input(argv[i], &list_head);
 		if (i > 1)
 			ft_not_repeated(ft_secure_atoi(argv[i]), list_head);
 		list_element = malloc(sizeof(t_number));
@@ -89,7 +91,7 @@ t_number	*ft_handle_input_single_string(char **argv)
 	i = -1;
 	while (split[++i])
 	{
-		ft_good_input(split[i]);
+		ft_good_input(split[i], &list_head);
 		if (i)
 			ft_not_repeated(ft_secure_atoi(split[i]), list_head);
 		list_element = malloc(sizeof(t_number));

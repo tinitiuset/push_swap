@@ -47,5 +47,6 @@ void		ft_sort_2(t_number **a);
 void		ft_sort_3(t_number **a);
 void		ft_sort_5(t_number **a, t_number **b);
 void		ft_sort(t_number **a, t_number **b);
+void		ft_clearup(t_number **a);
 
 #endif
