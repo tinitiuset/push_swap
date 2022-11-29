@@ -13,7 +13,7 @@ define HEADER
 endef
 export HEADER
 
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
 SRC =	main.c	input_handler.c \
@@ -33,14 +33,17 @@ $(NAME): $(SRC_OBJS)
 	@echo "$$HEADER"
 	@echo "Push_Swap Compiled"
 
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
 	@$(MAKE) -C ./libft_extra clean
-	@rm $(SRC_OBJS)
-	@rm ./libft_extra.a
-	@echo "Cleared .o and .a files"
+	@rm -f $(SRC_OBJS)
+	@rm -f ./libft_extra.a
+	@echo "Cleared Push_Swap .o and .a files"
 
 fclean: clean
-	@rm $(NAME)
+	@rm -f $(NAME)
 	@echo "Cleared Push_Swap executable"
 
 re: clean all
